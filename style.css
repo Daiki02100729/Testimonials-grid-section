@@ -1,0 +1,233 @@
+@charset "utf-8";
+
+/* common */
+
+:root {
+  --purple-50: hsl(260, 100%, 95%);
+  --purple-300: hsl(264, 82%, 80%);
+  --purple-500: hsl(263, 55%, 52%);
+  --white: hsl(0, 0%, 100%);
+  --grey-100: hsl(214, 17%, 92%);
+  --grey-200: hsl(0, 0%, 81%);
+  --grey-400: hsl(224, 10%, 45%);
+  --grey-500: hsl(217, 19%, 35%);
+  --dark-blue: hsl(219, 29%, 14%);
+  --black: hsl(0, 0%, 7%);
+
+  --ff: 'Barlow Semi Condensed', sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Reset */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Base */
+
+body {
+  background: var(--grey-100);
+  font-family: var(--ff);
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--grey-400);
+}
+
+
+/* Layout */
+
+.wrap {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 320px;
+  width: 100%;
+}
+
+/* Card */
+
+.card {
+  display: grid;
+  padding: 2rem;
+  border-radius: .8rem;
+  gap: 1rem;
+  line-height: 1.5;
+}
+
+.card-daniel {
+  background: var(--purple-500);
+  color: var(--white);
+}
+
+.card-jonathan {
+  background: var(--grey-500);
+  color: var(--white);
+}
+
+.card-jeanette {
+  background: var(--white);
+  color: var(--grey-500);
+}
+
+.card-patrick {
+  background: var(--dark-blue);
+  color: var(--white);
+}
+
+.card-kira {
+  background: var(--white);
+  color: var(--grey-500);
+}
+
+/* Profile */
+
+.card-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+}
+
+.avatar-ring {
+  outline: 2px solid hsla(0, 0%, 100%, .4);
+  outline-offset: 2px;
+}
+
+.name {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status {
+  font-size: 0.75rem;
+  color: var(--grey-200);
+}
+
+.card-jeanette .name,
+.card-kira .name {
+  color: var(--grey-500);
+}
+
+.card-jeanette .status,
+.card-kira .status {
+  color: var(--grey-400);
+}
+
+/* 見出し・本文 */
+
+h2,
+h3,
+p {
+  color: inherit;
+}
+
+.headline {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.body {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: .7;
+}
+
+/* ===============================
+  DESKTOP GRID LAYOUT
+=============================== */
+
+@media (min-width: 1000px) {
+  .wrap {
+    padding: 3px;
+  }
+
+  .grid {
+    max-width: 1110px;
+    width: 100%;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+  }
+
+  .card-daniel {
+    grid-area: daniel;
+  }
+
+  .card-jonathan {
+    grid-area: jonathan;
+  }
+
+  .card-jeanette {
+    grid-area: jeanette;
+  }
+
+  .card-patrick {
+    grid-area: patrick;
+  }
+
+  .card-kira {
+    grid-area: kira;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  .headline {
+    font-size: 1.3rem;
+    line-height: 1.35;
+  }
+
+  .body {
+    line-height: 1.65;
+    opacity: .9;
+  }
+}
+
+/* Footer */
+
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
